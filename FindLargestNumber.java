@@ -3,7 +3,7 @@ class FindLargestNumber{
     public static void main(String ar[]){
 
         Scanner scan = new Scanner(System.in);
-        while(true){
+        do{
         System.out.print("Enter 1st no :-");
         int input1 = scan.nextInt();
         System.out.print("Enter 2nd no :-");
@@ -25,10 +25,8 @@ class FindLargestNumber{
         // }
         System.out.print("Do you want to run again this program type '1' for exit '0' ");
         int repeat = scan.nextInt();
-        if(repeat==0){
-            break;
-        }
-    }
         scan.close();
+        
+        }while(true);
     }
 }
