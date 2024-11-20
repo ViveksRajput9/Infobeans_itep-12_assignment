@@ -6,5 +6,4 @@ class starPattern{
             }
             System.out.println();
         }
-    }
 }
