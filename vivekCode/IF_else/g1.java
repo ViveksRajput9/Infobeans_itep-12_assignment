@@ -1,5 +1,5 @@
 import java.util.Scanner;
-class g1 {
+class Q1 {
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
@@ -14,6 +14,5 @@ class g1 {
         }else{
             System.out.println("Please Enter number between 100 to 999");
         }
-        
     }
 }
