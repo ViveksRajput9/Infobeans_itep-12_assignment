@@ -1,4 +1,4 @@
-class p2{
+class w2{
         public static void main(String arg[]){
         int i = 1;
         while(true){

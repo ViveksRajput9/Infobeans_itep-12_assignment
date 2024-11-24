@@ -1,4 +1,4 @@
-class p3{ 
+class w3{ 
     public static void main3(String arg[]){
         int i;
         while(i<=0){
