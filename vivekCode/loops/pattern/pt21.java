@@ -5,7 +5,7 @@ public class pt21 {
                 System.out.print(" ");
             }
             for(int k = 5;k>=i;k--){
-                System.out.print("*");
+                System.out.print("* ");
             }
             System.out.println();
         }
@@ -14,7 +14,7 @@ public class pt21 {
                 System.out.print(" ");
             }
             for(int k = i;k<=4;k++){
-                System.out.print("*");
+                System.out.print("* ");
             }
             System.out.println();
         }
