@@ -5,7 +5,7 @@ public class pt13 {
                 System.out.print(" ");
             }
             for(int k = 65;k<=i;k++){
-                System.out.print((char)(k));
+                System.out.print((char)(k)+" ");
             }
             System.out.println();
         }
