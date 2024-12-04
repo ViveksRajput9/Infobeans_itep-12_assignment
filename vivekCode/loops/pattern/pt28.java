@@ -8,13 +8,15 @@ public class pt28 {
                 else
                   System.out.print("*");
             }
-            if(i>5){
-                s++;
-                e--;
-            }else{
-                s--;
-                e++;
-            }
+            s=(i>5)?(s+1):(s-1);
+            e=(i>5)?(e-1):(e+1);
+            // if(i>5){
+            //     s++;
+            //     e--;
+            // }else{
+            //     s--;
+            //     e++;
+            // }
             System.out.println();
         }
     }
