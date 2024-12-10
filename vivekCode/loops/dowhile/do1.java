@@ -20,6 +20,5 @@ public class do1 {
             
         }while(choice=='y');
         System.out.println("total net amount of purchase :- "+netAmount);
-        
     }
 }
