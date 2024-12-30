@@ -10,7 +10,7 @@ public class ar2 {
             }
         }
     }
-    public static void linearSearch1(int arr[],int value){
+    public static void linearSearchOccurence(int arr[],int value){
         int i,flag =0,count=0;
         for(i =0;i<arr.length;i++){
             if(arr[i]==value){

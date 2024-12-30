@@ -1,4 +1,4 @@
-package vivekCode.oops.Inhertance;
+package oops.Inhertance;
  // Base class for Single Inheritance
 class Animal {
     void eat() {

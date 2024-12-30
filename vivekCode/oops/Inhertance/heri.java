@@ -1,4 +1,4 @@
-package vivekCode.oops.Inhertance;
+package oops.Inhertance;
 
 class LibraryItem {
     protected String title;
@@ -17,7 +17,6 @@ class LibraryItem {
         System.out.println("Year Published: " + yearPublished);
     }
 }
-
 class Book extends LibraryItem {
     private String genre;
 
@@ -62,7 +61,6 @@ class DVD extends LibraryItem {
         System.out.println("Runtime: " + runtime + " minutes");
     }
 }
-
 public class heri {
     public static void main(String[] args) {
         Book book = new Book("The Great Gatsby", "F. Scott Fitzgerald", 1925, "Novel");

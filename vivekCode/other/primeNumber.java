@@ -1,4 +1,3 @@
-package other;
 import java.util.Scanner;
 public class primeNumber {
     public static boolean isPrime(int num){

@@ -1,0 +1,18 @@
+
+Super is a keyword created by jvm and supplied to each and every java program defferenciat between the base class features and derived class features .
+ If base class feature and derived class feature name is same then super keyword is used  
+
+
+ Super At variable level 
+ If data member of base class and derived class are same then super keyword is used to represent base class member 
+
+
+ Super at method level 
+  when base class method and child class method name same then to call base class method from the child class super keyword is used 
+
+ Super At Constructor level
+ Whenever be create an object of child class then first the  memory space for base class is created it means 
+ the data member of base class will be initialised first then data member of child class will be initialised it means 
+ The Constructor of base class will be executed first then the Constructor of child class will be executed 
+
+ Super and This in Constructor chaining 
