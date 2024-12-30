@@ -8,6 +8,7 @@ class GooglePay{
         this.amount = amount;
     }
     void display(){
+        System.out.println("----------------- Transaction details -----------------");
         System.out.print(" TransactionId = "+transactionId+" : "+" Amount = "+amount+" : ");
     }
 }
@@ -21,6 +22,7 @@ class PeerToPeer extends GooglePay{
     void display(){
         super.display();
         System.out.println(" Recepient = "+ recipient);
+        System.out.println("------------------------ end  ------------------------");
     }
 }
 class OnlinePurchaseTransaction extends GooglePay{
@@ -32,6 +34,8 @@ class OnlinePurchaseTransaction extends GooglePay{
     void display(){
         super.display();
         System.out.println(" Recepient = "+ recipient);
+        System.out.println("------------------------ end  ------------------------");
+
     }
 }
 class BillPaymentTransaction extends GooglePay{
@@ -43,15 +47,25 @@ class BillPaymentTransaction extends GooglePay{
     void display(){
         super.display();
         System.out.println(" Recepient = "+ recipient);
+        System.out.println("------------------------ end  ------------------------");
+
     }
 }
 class bank{
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
-    System.out.println("--------------------------welcome to Payment System--------------------------");
-    System.out.print(" Enter the amount : ");
-    int Amount = sc.nextInt();
-    System.out.print(" Enter ");
+    do{
+
+        try( Scanner sc = new Scanner(System.in)){
+            
+            System.out.println("--------------------------welcome to Payment System--------------------------");
+            System.out.print(" Enter the amount : ");
+            int Amount = sc.nextInt();
+            System.out.print(" Enter the transaction Id : ");
+            long transactionId = sc.nextLong();
+            
+            System.out.print(" Choose the ");
+        }
+    }while()
 
   }
 }

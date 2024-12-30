@@ -1,5 +1,4 @@
 class Person{
-
     {
         System.out.println("instance block1");
     }
@@ -41,9 +40,7 @@ class Employee extends Person{
         System.out.println(" employee single constructor ");
 
     }
-
 }
-
 class st1{
     public static void main(String ar[]){
         System.out.println(" main start ");
