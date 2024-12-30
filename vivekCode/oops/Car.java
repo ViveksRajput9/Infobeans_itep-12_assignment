@@ -1,4 +1,4 @@
-package vivekCode.oops;
+package oops;
 
 public class Car {
     String make;

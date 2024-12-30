@@ -1,4 +1,4 @@
-package vivekCode.oops.Inhertance;
+package oops.Inhertance;
 
 import java.util.Arrays;
 
