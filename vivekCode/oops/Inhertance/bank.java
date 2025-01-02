@@ -14,8 +14,13 @@ class GooglePay {
     }
 
     void display() {
-        System.out.println("----------------- Transaction details -----------------");
         System.out.print(" TransactionId = " + transactionId + " : " + " Amount = " + amount + " : ");
+    }
+    long getTransactionId(){
+        return transactionId;
+    }
+    int getAmount(){
+        return amount;
     }
 }
 
@@ -28,9 +33,13 @@ class PeerToPeer extends GooglePay {
     }
 
     void display() {
+        System.out.println("----------------- Transaction details -----------------");
         super.display();
         System.out.println(" Recepient = " + recipient);
         System.out.println("------------------------ end  ------------------------");
+    }
+    String getRecepient(){
+        return recipient;
     }
 }
 
@@ -43,10 +52,15 @@ class OnlinePurchaseTransaction extends GooglePay {
     }
 
     void display() {
+        System.out.println("----------------- Transaction details -----------------");
+
         super.display();
         System.out.println(" Merchant = " + Merchant);
         System.out.println("------------------------ end  ------------------------");
 
+    }
+    String getMerchant(){
+        return Merchant;
     }
 }
 
@@ -59,10 +73,14 @@ class BillPaymentTransaction extends GooglePay {
     }
 
     void display() {
+        System.out.println("----------------- Transaction details -----------------");
         super.display();
         System.out.println(" Bill Type = " + BillType);
         System.out.println("------------------------ end  ------------------------");
 
+    }
+    String getBillType(){
+        return BillType;
     }
 }
 
@@ -106,7 +124,7 @@ class bank {
         return transactionId;
     }
 
-    public static void transactionChoice(Scanner sc, List<GooglePay> transactions) {
+    public static GooglePay transactionChoice(Scanner sc) {
         System.out.println();
         System.out.println("--------------------------welcome to Payment System--------------------------");
         System.out.println();
@@ -127,7 +145,6 @@ class bank {
                 sc.next();
             }
         }
-        GooglePay transaction = null;
         switch (choice) {
             case 1:
                 sc.nextLine();
@@ -138,10 +155,7 @@ class bank {
                     System.out.print(" Enter the merchant name: ");
                     merchant = sc.nextLine();
                 }
-                transaction = new OnlinePurchaseTransaction(getTransactionId(sc), getAmount(sc), merchant);
-                transaction.display();
-                System.out.println("---------------ThankYou---------------");
-                break;
+                return new OnlinePurchaseTransaction(getTransactionId(sc), getAmount(sc), merchant);
             case 2:
                 sc.nextLine();
                 System.out.print(" Enter the Bill Type : ");
@@ -151,10 +165,7 @@ class bank {
                     System.out.print(" Enter the Bill Type : ");
                     billType = sc.nextLine();
                 }
-                transaction = new BillPaymentTransaction(getTransactionId(sc), getAmount(sc), billType);
-                transaction.display();
-                System.out.println("---------------ThankYou---------------");
-                break;
+                return new BillPaymentTransaction(getTransactionId(sc), getAmount(sc), billType);
             case 3:
                 sc.nextLine();
                 System.out.print(" Enter the Recepient name : ");
@@ -164,14 +175,9 @@ class bank {
                     System.out.print(" Enter the Recepient name : ");
                     recepient = sc.nextLine();
                 }
-                transaction = new PeerToPeer(getTransactionId(sc), getAmount(sc), recepient);
-                transaction.display();
-                System.out.println("---------------ThankYou---------------");
+                return new PeerToPeer(getTransactionId(sc), getAmount(sc), recepient);
             default:
-                System.out.println("Invalid choice");
-        }
-        if (transaction != null) {
-            transactions.add(transaction);
+                return null;
         }
     }
 
@@ -189,6 +195,32 @@ class bank {
             }
         } while (true);
     }
+    public static void displayAllTransactions(Scanner sc,List<GooglePay> transactions){
+        System.out.println("Do you want display all transactions ? type y for yes and n for no");
+        char choice2 = sc.next().charAt(0);
+        if (choice2 == 'y' || choice2 == 'Y') {
+            System.out.println("----------------- All Transaction details -----------------");
+            System.out.println();
+
+            for (GooglePay transaction : transactions) {
+                transaction.display();
+                // if(transaction instanceof PeerToPeer){
+                //     ((GooglePay) transaction).display();
+                //     System.out.print( " Recepient = " + ((PeerToPeer) transaction).getRecepient());
+                // }else if(transaction instanceof OnlinePurchaseTransaction){
+                //     ((GooglePay) transaction).display();
+                //     System.out.print( " Merchant = " + ((OnlinePurchaseTransaction) transaction).getMerchant());
+                // }else if(transaction instanceof BillPaymentTransaction){
+                //     ((GooglePay) transaction).display();
+                //     System.out.print( " Bill Type = " + ((BillPaymentTransaction) transaction).getBillType());
+                // }
+
+                System.out.println();
+            }
+            System.out.println("-------------------------- ended --------------------------");
+
+        }
+    }
 
     public static void main(String[] args) {
         List<GooglePay> transactions = new ArrayList<>(); // List to store transactions
@@ -196,18 +228,16 @@ class bank {
 
         do {
 
-            transactionChoice(sc, transactions);
-
-        } while (newBillChoice(sc));
-        System.out.println("Do you want display all transactions ? type y for yes and n for no");
-        char choice2 = sc.next().charAt(0);
-        if (choice2 == 'y' || choice2 == 'Y') {
-
-            for (GooglePay transaction : transactions) {
+            GooglePay transaction = transactionChoice(sc);
+            if (transaction != null) {
+                transactions.add(transaction);
                 transaction.display();
-                System.out.println();
+                System.out.println("---------------ThankYou---------------");
+            }else{
+                System.out.println("Invalid  bill ");
             }
-        }
+        } while (newBillChoice(sc));
+        displayAllTransactions(sc,transactions);
         System.out.println("Thank you for using Google Pay");
     }
 }
