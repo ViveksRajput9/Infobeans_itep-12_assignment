@@ -1,0 +1,686 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "ar1",
+            "request": "launch",
+            "mainClass": "Array.ar1",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "Bank",
+            "request": "launch",
+            "mainClass": "Bank",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "BankWithdraw",
+            "request": "launch",
+            "mainClass": "IF_else.BankWithdraw",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "CheckTemperature",
+            "request": "launch",
+            "mainClass": "IF_else.CheckTemperature",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "Q1",
+            "request": "launch",
+            "mainClass": "IF_else.Q1",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "g2",
+            "request": "launch",
+            "mainClass": "IF_else.g2",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "g3",
+            "request": "launch",
+            "mainClass": "IF_else.g3",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "g4",
+            "request": "launch",
+            "mainClass": "IF_else.g4",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "g5",
+            "request": "launch",
+            "mainClass": "IF_else.g5",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "g6",
+            "request": "launch",
+            "mainClass": "IF_else.g6",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "g7",
+            "request": "launch",
+            "mainClass": "IF_else.g7",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "leapYear",
+            "request": "launch",
+            "mainClass": "IF_else.leapYear",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "InheritanceExample",
+            "request": "launch",
+            "mainClass": "InheritanceExample",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "CommandLine",
+            "request": "launch",
+            "mainClass": "NEW.CommandLine",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "Pd1",
+            "request": "launch",
+            "mainClass": "Pd1",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "ar1(1)",
+            "request": "launch",
+            "mainClass": "arrays.ar1",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "ar2",
+            "request": "launch",
+            "mainClass": "arrays.ar2",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "p1",
+            "request": "launch",
+            "mainClass": "geetmamQuestions.p1",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "heri",
+            "request": "launch",
+            "mainClass": "heri",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "heri1",
+            "request": "launch",
+            "mainClass": "heri1",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "heri2",
+            "request": "launch",
+            "mainClass": "heri2",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "in1",
+            "request": "launch",
+            "mainClass": "in1",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "in2",
+            "request": "launch",
+            "mainClass": "in2",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "MultipleOfNum",
+            "request": "launch",
+            "mainClass": "loops.Questions.MultipleOfNum",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "MultiplyOfNum",
+            "request": "launch",
+            "mainClass": "loops.Questions.MultiplyOfNum",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "w2",
+            "request": "launch",
+            "mainClass": "loops.WhileLoops.w2",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "w4",
+            "request": "launch",
+            "mainClass": "loops.WhileLoops.w4",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "w5",
+            "request": "launch",
+            "mainClass": "loops.WhileLoops.w5",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "w6",
+            "request": "launch",
+            "mainClass": "loops.WhileLoops.w6",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "do1",
+            "request": "launch",
+            "mainClass": "loops.dowhile.do1",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "p1(1)",
+            "request": "launch",
+            "mainClass": "loops.forLoops.p1",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "p2",
+            "request": "launch",
+            "mainClass": "loops.forLoops.p2",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "p3",
+            "request": "launch",
+            "mainClass": "loops.forLoops.p3",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "p4",
+            "request": "launch",
+            "mainClass": "loops.forLoops.p4",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "p5",
+            "request": "launch",
+            "mainClass": "loops.forLoops.p5",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "p6",
+            "request": "launch",
+            "mainClass": "loops.forLoops.p6",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "charPattern",
+            "request": "launch",
+            "mainClass": "loops.pattern.charPattern",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "diamond",
+            "request": "launch",
+            "mainClass": "loops.pattern.diamond",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "pascal",
+            "request": "launch",
+            "mainClass": "loops.pattern.pascal",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "pt1",
+            "request": "launch",
+            "mainClass": "loops.pattern.pt1",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "pt10",
+            "request": "launch",
+            "mainClass": "loops.pattern.pt10",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "pt11",
+            "request": "launch",
+            "mainClass": "loops.pattern.pt11",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "pt12",
+            "request": "launch",
+            "mainClass": "loops.pattern.pt12",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "pt13",
+            "request": "launch",
+            "mainClass": "loops.pattern.pt13",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "pt14",
+            "request": "launch",
+            "mainClass": "loops.pattern.pt14",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "pt15",
+            "request": "launch",
+            "mainClass": "loops.pattern.pt15",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "pt16",
+            "request": "launch",
+            "mainClass": "loops.pattern.pt16",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "pt17",
+            "request": "launch",
+            "mainClass": "loops.pattern.pt17",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "pt18",
+            "request": "launch",
+            "mainClass": "loops.pattern.pt18",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "pt19",
+            "request": "launch",
+            "mainClass": "loops.pattern.pt19",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "pt2",
+            "request": "launch",
+            "mainClass": "loops.pattern.pt2",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "pt20",
+            "request": "launch",
+            "mainClass": "loops.pattern.pt20",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "pt21",
+            "request": "launch",
+            "mainClass": "loops.pattern.pt21",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "pt22",
+            "request": "launch",
+            "mainClass": "loops.pattern.pt22",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "pt23",
+            "request": "launch",
+            "mainClass": "loops.pattern.pt23",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "pt24",
+            "request": "launch",
+            "mainClass": "loops.pattern.pt24",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "pt25",
+            "request": "launch",
+            "mainClass": "loops.pattern.pt25",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "pt26",
+            "request": "launch",
+            "mainClass": "loops.pattern.pt26",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "pt27",
+            "request": "launch",
+            "mainClass": "loops.pattern.pt27",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "pt28",
+            "request": "launch",
+            "mainClass": "loops.pattern.pt28",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "pt29",
+            "request": "launch",
+            "mainClass": "loops.pattern.pt29",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "pt3",
+            "request": "launch",
+            "mainClass": "loops.pattern.pt3",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "pt30",
+            "request": "launch",
+            "mainClass": "loops.pattern.pt30",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "pt31",
+            "request": "launch",
+            "mainClass": "loops.pattern.pt31",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "pt4",
+            "request": "launch",
+            "mainClass": "loops.pattern.pt4",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "pt5",
+            "request": "launch",
+            "mainClass": "loops.pattern.pt5",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "pt6",
+            "request": "launch",
+            "mainClass": "loops.pattern.pt6",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "pt7",
+            "request": "launch",
+            "mainClass": "loops.pattern.pt7",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "pt8",
+            "request": "launch",
+            "mainClass": "loops.pattern.pt8",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "pt9",
+            "request": "launch",
+            "mainClass": "loops.pattern.pt9",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "q1",
+            "request": "launch",
+            "mainClass": "loops.pattern.q1",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "q2",
+            "request": "launch",
+            "mainClass": "loops.pattern.q2",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "starPattern",
+            "request": "launch",
+            "mainClass": "loops.pattern.starPattern",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "BankAccount",
+            "request": "launch",
+            "mainClass": "oops.BankAccount",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "Book",
+            "request": "launch",
+            "mainClass": "oops.Book",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "Car",
+            "request": "launch",
+            "mainClass": "oops.Car",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "Delivery",
+            "request": "launch",
+            "mainClass": "oops.Delivery",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "su",
+            "request": "launch",
+            "mainClass": "oops.Super.su",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "su4",
+            "request": "launch",
+            "mainClass": "oops.Super.su4",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "su5",
+            "request": "launch",
+            "mainClass": "oops.Super.su5",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "su6",
+            "request": "launch",
+            "mainClass": "oops.Super.su6",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "CommandLineArgument",
+            "request": "launch",
+            "mainClass": "other.CommandLineArgument",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "EvenOdd",
+            "request": "launch",
+            "mainClass": "other.EvenOdd",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "FibonacciSeries",
+            "request": "launch",
+            "mainClass": "other.FibonacciSeries",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "FindLargestNumber",
+            "request": "launch",
+            "mainClass": "other.FindLargestNumber",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "lamda",
+            "request": "launch",
+            "mainClass": "other.Interface_lamda.lamda",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "ReverseThreeDigit",
+            "request": "launch",
+            "mainClass": "other.ReverseThreeDigit",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "SwapNumber",
+            "request": "launch",
+            "mainClass": "other.SwapNumber",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "a",
+            "request": "launch",
+            "mainClass": "other.a",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "demo",
+            "request": "launch",
+            "mainClass": "other.demo",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "fibbonacchi",
+            "request": "launch",
+            "mainClass": "other.fibbonacchi",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "deleteduplicat",
+            "request": "launch",
+            "mainClass": "other.practise.deleteduplicat",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "demo(1)",
+            "request": "launch",
+            "mainClass": "other.practise.demo",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "primeNumber",
+            "request": "launch",
+            "mainClass": "other.primeNumber",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "reverseDigit",
+            "request": "launch",
+            "mainClass": "other.reverseDigit",
+            "projectName": "vivekCode_c6b3851b"
+        },
+        {
+            "type": "java",
+            "name": "st",
+            "request": "launch",
+            "mainClass": "st",
+            "projectName": "vivekCode_c6b3851b"
+        }
+    ]
+}

@@ -1,4 +1,3 @@
-package vivekCode.oops.Inhertance;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,14 +65,14 @@ class BillPaymentTransaction extends GooglePay {
     }
 }
 
-class bank {
+public class Bank {
     public static int getAmount() {
         int amount = 0;
-        try (Scanner sc = new Scanner(System.in)) {
+        try (Scanner sc1 = new Scanner(System.in)) {
             while (true) {
                 System.out.print("Enter the amount (up to 100000): ");
-                if (sc.hasNextInt()) { // Check if the input is an integer
-                    amount = sc.nextInt();
+                if (sc1.hasNextInt()) { // Check if the input is an integer
+                    amount = sc1.nextInt();
                     if (amount > 0 && amount <= 100000) { // Validate the range
                         break; // Exit loop if valid
                     } else {
@@ -81,13 +80,12 @@ class bank {
                     }
                 } else {
                     System.out.println("Invalid input. Please enter a numeric amount.");
-                    sc.next(); // Clear the invalid input
+                    sc1.next(); // Clear the invalid input
                 }
             }
         }
         return amount;
     }
-    
     
     public static long getTransactionId() {
         long transactionId = 0;
@@ -135,8 +133,9 @@ class bank {
                         case 1:
                             System.out.print(" Enter the Merchant name : ");
                             String Merchant = sc.next();
-            
-                            transaction = new OnlinePurchaseTransaction(getTransactionId(),getAmount(),Merchant);
+                            int amount = getAmount();
+                            long transactionId = getTransactionId();
+                            transaction = new OnlinePurchaseTransaction(transactionId,amount,Merchant);
                             transaction.display();
                             System.out.println("---------------ThankYou---------------");
                             break;
