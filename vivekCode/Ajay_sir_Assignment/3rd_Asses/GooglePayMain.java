@@ -1,4 +1,3 @@
-package vivekCode.oops.Inhertance;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -93,14 +92,14 @@ class bank {
             if (sc.hasNextInt()) { // Check if the input is an integer
                 // amount = Integer.parseInt(sc.nextLine());
                 amount = sc.nextInt();
-                if (amount > 0 && amount <= 100000) { // Validate the range
-                    break; // Exit loop if valid
+                if (amount > 0 && amount <= 100000) { 
+                    break; 
                 } else {
                     System.out.println("Invalid input. Amount must be between 1 and 100000.");
                 }
             } else {
                 System.out.println("Invalid input. Please enter a numeric amount.");
-                sc.next(); // Clear the invalid input
+                sc.next(); 
             }
         }
         return amount;
@@ -115,10 +114,10 @@ class bank {
             if (sc.hasNextLong()) { // Check if the next input is a long
                 transactionId = sc.nextLong();
                 // transactionId = Long.parseLong(sc.nextLine());
-                valid = true; // Exit the loop if input is valid
+                valid = true; 
             } else {
                 System.out.println(" Invalid input! Please enter a numeric transaction ID.");
-                sc.next(); // Clear the invalid input
+                sc.next();
             }
         }
         return transactionId;
@@ -229,4 +228,7 @@ class bank {
         displayAllTransactions(sc,transactions);
         System.out.println("Thank you for using Google Pay");
     }
+}
+public class GooglePayMain {
+    
 }
