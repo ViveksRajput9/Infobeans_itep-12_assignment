@@ -1,3 +1,5 @@
+package loops.Questions;
+
 import java.util.Scanner;
 class MultiplyOfNum{
     public static void main(String args[]){
