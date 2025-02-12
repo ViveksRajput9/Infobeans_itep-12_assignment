@@ -1,0 +1,129 @@
+In  above example we are writing all the constructor
+to avoid this repetation initialization block used
+there are two types of initialization block 
+1. instance initialization block
+2. static initialization block
+
+instance initialization BLOCK 
+ for every object creation instance initialization block will we called 
+ this block will be called before the constructor 
+
+
+ we can have more than one instance initialization block in our program 
+ in that case they will be executed from top to bottom 
+
+
+ STATIC INITIALIZATION BLOCK 
+whenever the class is loaded in memory then static initialization block will be executed 
+whenever we call any executable block then class is loaded in memory class will be loaded in memory only once 
+
+class Person{
+    {
+        System.out.println("instance block1");
+    }
+    static 
+    {
+        System.out.println("static initialization block1");
+    }
+    Person()
+    {
+        System.out.println("default constructor");
+    }
+    Person(int id,String name)
+    {
+        System.out.println("two para constructor");
+    }
+}
+class Beta{
+    public static void main(String ar[]){
+        Person obj = new Person();
+    
+    }
+}
+
+
+
+
+class Person{
+    {
+        System.out.println("instance block1");
+    }
+    static 
+    {
+        System.out.println("static initialization block1");
+    }
+    Person()
+    {
+        System.out.println("default constructor");
+    }
+    Person(int id,String name)
+    {
+        System.out.println("two para constructor");
+    }
+}
+class Beta{
+    public static void main(String ar[]){
+        System.out.println(" main start ");
+        Person obj = new Person();
+        Beta obj1 = new Beta();
+    }
+    static 
+    {
+        System.out.println("  main static ");
+    }
+    {
+        System.out.println(" instance beta ");
+    }
+}
+
+
+
+constructor Chaining and initialization block 
+
+whenever we are returning back from super class for the first time then all the instance initialization block will be executed 
+
+class Person{
+    {
+        System.out.println("instance block1");
+    }
+    static 
+    {
+        System.out.println("static initialization block1");
+    }
+    Person()
+    {
+        System.out.println("default constructor");
+    }
+
+}
+class Employee extends Person{
+     {
+        System.out.println("instance block Employee");
+    }
+    static 
+    {
+        System.out.println("static initialization block Employee");
+    }
+    Employee()
+    {
+        System.out.println("default constructor Employee ");
+    }
+}
+class Beta{
+    public static void main(String ar[]){
+        System.out.println(" main start ");
+        Person obj = new Person();
+        Beta obj1 = new Beta();
+    }
+    static 
+    {
+        System.out.println("  main static ");
+    }
+    {
+        System.out.println(" instance beta ");
+    }
+}
+
+output:- static initialization block
+         static initialization block Employee
+         
