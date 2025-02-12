@@ -1,0 +1,14 @@
+package collectionAsses;
+import java.util.*;
+public class Q3 {
+	public static boolean isPerfectNumber(int num) {
+	    int n =1;
+		while(num!=0) {
+			num = num/2;
+			n+=2;
+		}
+	}
+	public static void main(String[] args) {
+	   	
+	}
+}

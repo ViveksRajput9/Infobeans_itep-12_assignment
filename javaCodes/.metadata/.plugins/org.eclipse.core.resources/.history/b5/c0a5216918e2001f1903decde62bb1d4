@@ -1,0 +1,14 @@
+package Maths;
+
+import java.util.Scanner;
+
+public class Q1 {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Enter the start point to generate random number");
+		int start = scanner.nextInt();
+		System.out.println("Enter the end num ");
+		int end = scanner.nextInt();
+		int num = (int)Math.random()*101+100;
+	}
+}

@@ -1,0 +1,9 @@
+package Interface;
+interface gg{
+	int x=12;
+	void gg();
+	
+}
+public class Q1 {
+
+}

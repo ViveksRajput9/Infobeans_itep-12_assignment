@@ -1,0 +1,109 @@
+package collectionAsses.day2;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Scanner;
+
+class BookManagement{
+	private String title ;
+	private String author;
+	private String ISBN;
+	private int price;
+	public BookManagement(String title, String author, String iSBN, int price) {
+		this.title = title;
+		this.author = author;
+		ISBN = iSBN;
+		this.price = price;
+	}
+	
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public String getISBN() {
+		return ISBN;
+	}
+
+	public void setISBN(String iSBN) {
+		ISBN = iSBN;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	@Override
+	public String toString() {
+		return "BookManagement [title=" + title + ", author=" + author + ", ISBN=" + ISBN + ", price=" + price + "]";
+	}
+}
+public class Q2 {
+	static List<BookManagement> l = new ArrayList<>();
+	public static Scanner sc = new Scanner(System.in);
+	
+	public static void addNewBook() {
+		System.out.print("title Name:- ");
+		String title = sc.nextLine();
+		System.out.print("author Name:- ");
+		String authorName= sc.nextLine();
+		System.out.print("ISBN :- ");
+		String iSBN = sc.nextLine();
+		System.out.println("");
+		int price = sc.nextInt();
+		l.add(new BookManagement(title, authorName, iSBN, price));
+		
+	}
+	public static void displayAllBooks() {
+		for(BookManagement b : l) {
+			System.out.println(b);
+		}
+	}
+	public static void serchBook(String title) {
+		boolean flag = true;
+		for (BookManagement bookManagement : l) {
+			if(bookManagement.getTitle().equals(title)) {
+				flag = false;
+				System.out.println(bookManagement);
+				break;
+			}
+		}
+		if(flag) {
+			System.out.println("No Record Found");
+		}
+	}
+	public static void removeBook(String iSBN) {
+		boolean flag = true;
+
+		for (BookManagement bookManagement : l) {
+			if(bookManagement.getISBN().equals(iSBN)) {
+				flag = false;
+
+				l.remove(bookManagement);
+			    break;
+			}
+		}
+		if(flag) {
+		    System.out.println("No Record Found");
+		}
+	}
+	public static void main(String[] args) {
+		
+	}
+}

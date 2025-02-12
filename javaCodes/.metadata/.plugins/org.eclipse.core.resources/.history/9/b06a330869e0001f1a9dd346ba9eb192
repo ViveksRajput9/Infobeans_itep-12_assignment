@@ -1,0 +1,16 @@
+ package Overriding;
+class a{
+	public void s(){
+		
+	}
+}
+class b extends a{
+	private void s() {
+	}
+}
+public class Q1 {
+ public static void main(String[] args) {
+	 b d = new b();
+	 
+}
+}

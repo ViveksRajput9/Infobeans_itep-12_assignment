@@ -1,0 +1,11 @@
+package practices.StringsAsses;
+import static practices.StringsAsses.Methods.*;
+public class Q8 {
+	public static void main(String[] args) {
+		StringBuilder string = new StringBuilder("Hello everyone i am trainee of infobeans foundation and i reach the foundation on time so we can meat at night  ");
+		
+		reverseSecondWordInStringBuilder(string);
+		System.out.println(string);
+		
+	}
+}

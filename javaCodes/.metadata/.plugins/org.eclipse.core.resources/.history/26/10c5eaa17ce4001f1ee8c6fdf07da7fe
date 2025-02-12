@@ -1,0 +1,9 @@
+package Practiseteach;
+
+public class Q1 {
+	public static void main(String[] args) {
+		String a = "  vivek singh rajput   ";
+		a.trim();
+		System.out.println(a);
+	}
+}

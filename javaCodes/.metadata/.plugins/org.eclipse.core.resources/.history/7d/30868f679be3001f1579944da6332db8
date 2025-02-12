@@ -1,0 +1,20 @@
+package collectionAsses.day2;
+import java.util.*;
+public class q1 {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		ArrayList <Integer> ar = new ArrayList<>();
+		System.out.println("Enter the size of ArrayList :- ");
+		String n = scanner.nextLine();
+		String input[] = n.trim().split(" ");
+		for(int i =0;i<input.length;i++) {
+			System.out.print("Enter integer value :- ");
+			try {
+				ar.add(Integer.parseInt(input[i]));
+				
+			} catch (NumberFormatException e) {
+				System.out.println(e);
+			}
+		}
+	}
+}

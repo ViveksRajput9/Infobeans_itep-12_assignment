@@ -1,0 +1,16 @@
+package collectionAsses;
+import java.util.*;
+public class Q3 {
+	public static boolean isPerfectNumber(int num) {
+	    int n =1;
+	    int duplicatNum= num;
+		while(num!=0) {
+			num = num/2;
+			n+=2;
+		}
+		return (n==duplicatNum)? true: false ;
+	}
+	public static void main(String[] args) {
+	   	
+	}
+}

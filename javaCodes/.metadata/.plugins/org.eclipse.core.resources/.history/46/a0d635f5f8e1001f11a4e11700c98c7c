@@ -1,0 +1,10 @@
+package Interface;
+interface gg{
+	int x;
+	static {
+		x=10;
+	}
+}
+public class Q1 {
+
+}

@@ -1,0 +1,215 @@
+package practices.StringsAsses;
+
+
+public interface Methods{
+	public static boolean isVowel(char c) {
+		if(c=='a'||c=='e'||c=='i'||c=='o'||c=='u'||c=='A'||c=='E'||c=='I'||c=='O'||c=='U') return true;
+		else return false;
+	}
+	public static boolean isLowerCaseVowel(char c) {
+		if(c=='a'||c=='e'||c=='i'||c=='o'||c=='u') return true;
+		else return false;
+	}
+	public static boolean isConsonent(char c) {
+		if(c=='a'||c=='e'||c=='i'||c=='o'||c=='u'||c=='A'||c=='E'||c=='I'||c=='O'||c=='U') return false;
+		else return true;
+	}
+	
+	public static byte countVowels(String string) {
+		byte count = 0;
+		for(int i = 0;i<string.length();i++) {
+			if(isVowel(string.charAt(i))) {
+			   count++;
+			}
+		}
+		return count;
+	}
+	public static byte countSpace(String string) {
+		byte count = 0;
+		for(int i = 0;i<string.length();i++) {
+			if(isSpace(string.charAt(i))) {
+			   count++;
+			}
+		}
+		return count;
+	}
+	public static byte countOccuredChar(String string,char c) {
+		byte count = 0;
+		for(int i = 0;i<string.length();i++) {
+			if(string.charAt(i)==c) {
+			   count++;
+			}
+		}
+		return count;
+	}
+	public static byte countConsonents(String string) {
+			byte count = 0;
+			for(int i = 0;i<string.length();i++) {
+				if(isConsonent(string.charAt(i))) count++;
+				
+			}
+			return count;
+	}
+	
+	public static String vowelToUpperCase(String string) {
+		String a = "";
+		for(int i = 0;i<string.length();i++) {
+			if(isLowerCaseVowel(string.charAt(i))) {
+		    	a += (char)(string.charAt(i)-32);
+		
+			}else {
+				a +=string.charAt(i);
+			}
+		}
+		return a;
+	}
+
+	public static boolean isContainSpecialChar(char c) {
+		if(!(c>=97&&c<=122||c>=65&&c<=90)) return true;
+		else return true;
+	}
+	public static boolean isContainSpecialChar(String str) {
+		for (int i = 0; i < str.length(); i++) {
+			if(isContainSpecialChar(str.charAt(i)))return true;
+		}
+		return false;
+	}
+	public static boolean isUpperCaseChar(char c) {
+		if(c>=65&&c<=90) return true;
+		else return false;
+	}
+	public static boolean isLowerCaseChar(char c) {
+		if(c>=97&&c<=122) return true;
+		else return false;
+	}
+	public static boolean isSpace(char c) {
+		if(c==' ') return true;
+		else return false;
+	}
+	public static boolean isNumber(char c) {
+		if(c=='1'||c=='2'||c=='3'||c=='4'||c=='5'||c=='6'||c=='7'||c=='8'||c=='9'||c=='0') return true;
+		else return false;
+	}
+	public static boolean isContainNumber(String string) {
+		for (int i = 0; i < string.length(); i++) {
+			if(isNumber(string.charAt(i))) return true;
+			
+		}
+		return false;
+	}
+	
+	public static boolean isContainUpperCaseChar(String string) {
+		for(int i = 0;i<string.length();i++) {
+		   	if(isUpperCaseChar(string.charAt(i))) return true;
+		}
+		return false;
+	}
+	public static boolean isContainLowerCaseChar(String string) {
+		for(int i = 0;i<string.length();i++) {
+		   	if(isLowerCaseChar(string.charAt(i))) return true;
+		}
+		return false;
+	}
+	public static boolean isPalindrome(String str) {
+		if(str == null)return false;
+		for (int i = 0; i < str.length()/2; i++) {
+			if(str.charAt(i)!=str.charAt(str.length()-i-1)) return false;
+		}
+		return true;
+	}
+	public static String reverseString(String str) {
+		String reverseString= "";
+		for (int i = str.length()-1; i >=0 ; i--) {
+			reverseString += str.charAt(i);
+			
+		}
+		return reverseString;
+	}
+	public static String removeSpace(String str) {
+		String removeSpace= "";
+		for (int i =0 ; i < str.length() ; i++) {
+			if(!(isSpace(str.charAt(i)))) removeSpace += str.charAt(i);
+		}
+		return removeSpace;
+	}
+	public static int[] characterFrequency(String str) {
+		int frequency[]= new int[123];
+		for(int i = 0;i<str.length();i++) {
+			frequency[str.charAt(i)]++;
+		}
+		return frequency;
+
+	}
+	public static boolean isPasswordValid(String string) {
+		
+		if(string!=null && string.length() >= 8 && string.length()<=15) {
+			if(!isContainUpperCaseChar(string)) return false; 
+			if(!isContainLowerCaseChar(string)) return false;
+			if(!isContainNumber(string)) return false;
+			if(!isContainNumber(string)) return false;
+			if(!isContainSpecialChar(string)) return false;
+			if(isContainSpace(string)) return false;
+		    return true;
+		}
+		else {
+			return false;
+		}
+    }
+	public static boolean isContainSpace(String string) {
+		for (int i = 0; i < string.length(); i++) {
+			if(isSpace(string.charAt(i))) return true;
+		}
+		return false;
+	}
+	
+	public static char toUpperCaseFirstChar(char st) {
+		if(isLowerCaseChar(st)) return (char) (st-32);
+		return st;
+	}
+	public static String tofirstWordUpperCase(String string) {
+		String str[] = string.split(" ");
+		String string2 = "";
+		for(int i = 0; i<str.length;i++) {
+			for(int j = 0 ; j<str[i].length();j++) {
+				char c = str[i].charAt(j);
+			    if(j==0)string2 += toUpperCaseFirstChar(c);
+			    else string2 += c;
+			
+			}
+			string2+= ' ';
+		}
+		return string2;
+	}
+	public static boolean isAnagram(String st1, String st2) {
+		if(st1.length()!=st2.length()) return false;
+		int ar[]=new int[256];
+		for (int i = 0; i < st1.length(); i++) {
+			ar[st1.charAt(i)]++;
+		}
+		for (int i = 0; i < st2.length(); i++) {
+			ar[st2.charAt(i)]--;
+			if(ar[st2.charAt(i)]<0) return false;
+		}
+		return true;
+	}
+	public static void swapWords(StringBuffer str,int firstIndex,int lastIndex) {
+		int index = lastIndex/2;
+		while(firstIndex<=index) {
+			char temp = str.charAt(lastIndex);
+			str.setCharAt(lastIndex, str.charAt(firstIndex));
+			str.setCharAt(firstIndex, temp);
+			firstIndex++;
+			lastIndex--;
+			System.out.println(str);
+		}
+	}
+	public static void reverseWord(StringBuffer str) {
+		int j = 0;
+		for (int i = 0; i < str.length(); i++) {
+			if(i==str.length() || str.charAt(i)==' ') {
+				swapWords(str, j, i);
+				j = i;
+			}
+		}
+	}
+}

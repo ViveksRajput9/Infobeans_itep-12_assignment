@@ -1,0 +1,11 @@
+package practices.StringsAsses;
+import static practices.StringsAsses.Methods.*;
+public class Q8 {
+	public static void main(String[] args) {
+		StringBuilder string = new StringBuilder("vivek singh rajput ");
+		
+		reverseSecondWordInStringBuilder(string);
+		System.out.println(string);
+		
+	}
+}

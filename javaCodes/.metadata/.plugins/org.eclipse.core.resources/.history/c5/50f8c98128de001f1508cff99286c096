@@ -1,0 +1,57 @@
+package classWork;
+
+import java.util.Objects;
+
+class Person1 {
+	private int id;
+	private String name;
+
+	public Person1(int id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+
+	public String toString() {
+		return id + ":" + name;
+	}
+
+	
+	
+
+}
+
+class Student1 extends Person {
+	private String tension;
+
+	public Student1(int id, String name, String tension) {
+		super(id, name);
+		this.tension = tension;
+	}
+
+	public String toString() {
+		return super.toString() + ":" + tension;
+	}
+}
+
+class MastiKhor1 extends Student {
+	private String party;
+
+	public MastiKhor1(int id, String name, String tension, String party) {
+		super(id, name, tension);
+		this.party = party;
+	}
+
+	public String toString() {
+		return super.toString() + ":" + party;
+	}
+	public int hashCode() {
+		return Objects.hash(party);
+	}
+}
+
+public class Q2 {
+	public static void main(String[] args) {
+		MastiKhor mastiKhor = new MastiKhor(101, "vivek singh rajput", "assignment", "time nahi he");
+		System.out.println(mastiKhor);
+	}
+}

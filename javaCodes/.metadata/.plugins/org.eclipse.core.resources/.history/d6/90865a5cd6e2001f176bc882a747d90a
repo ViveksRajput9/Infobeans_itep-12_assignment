@@ -1,0 +1,22 @@
+package collectionAsses;
+import java.util.*;
+public class Q3 {
+	public static boolean isPerfectNumber(int num) {
+		if(num == 1) return true;
+	    int n =1;
+	    int duplicatNum= num;
+		while(num!=0) {
+			num = num/2;
+			n+=2;
+		}
+		return (n==duplicatNum)? true: false ;
+	}
+	public static void main(String[] args) {
+	   	List <Integer> l = new ArrayList<>();
+	   	for (int i = 1; i < 51; i++) {
+			l.add(i);
+		}
+	   	
+	   	l.forEach(num -> {if(isPerfectNumber(num))System.out.println(num);});
+	}
+}

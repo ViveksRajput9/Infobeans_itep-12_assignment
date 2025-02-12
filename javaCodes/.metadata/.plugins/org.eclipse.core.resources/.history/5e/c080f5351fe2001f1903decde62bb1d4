@@ -1,0 +1,26 @@
+package collectionAsses;
+import java.util.Collection;
+import java.util.List;
+import java.util.ArrayList;
+public class Q1 {
+	public static void main(String[] args) {
+		List <String> l = new ArrayList<String>();
+		l.add("vivek");
+		l.add("mohit");
+		
+		l.add("vikas");
+		l.add("amit");
+		
+		l.add("abhishek");
+		l.add("ashu");
+		l.add("badal");
+		
+		l.add("vivek");
+		
+		l.add("anjali");
+		l.add("ashok");
+		
+		l.forEach((s) -> {if(s.startsWith("a"));});
+		
+	}
+}

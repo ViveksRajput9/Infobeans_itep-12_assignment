@@ -1,0 +1,40 @@
+package classWork;
+class Person{
+	private int id;
+	private String name;
+	public Person(int id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+	public String toString() {
+		return id+":"+name;
+	}
+	
+}
+class Student extends Person{
+	private String tension;
+	public Student(int id, String name,String tension) {
+		super(id, name);
+		this.tension = tension;
+	}
+	public String toString() {
+		return super.toString()+":"+tension;
+	}
+}
+class MastiKhor extends Student{
+	private String party;
+
+	public MastiKhor(int id, String name, String tension, String party) {
+		super(id, name, tension);
+		this.party = party;
+	}
+	public String toString() {
+		return super.toString()+":"+party;
+	}
+}
+public class Q1 {
+	public static void main(String[] args) {
+		MastiKhor mastiKhor = new MastiKhor(101,"vivek singh rajput", "assignment","time nahi he");
+		System.out.println(mastiKhor);
+	}
+}

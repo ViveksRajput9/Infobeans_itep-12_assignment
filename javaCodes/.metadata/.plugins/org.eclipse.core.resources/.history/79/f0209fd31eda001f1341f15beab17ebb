@@ -1,0 +1,13 @@
+package practices.StringsAsses;
+
+public class Q8 {
+	public static void main(String[] args) {
+		String string = "vivek singh rajput ";
+		int count = 0;
+		for(int i = 0;i<= count;i++) {
+			if() {
+				
+			}
+		}
+	}
+}

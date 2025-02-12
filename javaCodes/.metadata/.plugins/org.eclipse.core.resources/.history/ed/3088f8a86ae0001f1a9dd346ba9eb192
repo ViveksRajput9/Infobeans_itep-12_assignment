@@ -1,0 +1,42 @@
+ package Overriding;
+class a{
+	int a1 ;
+	int b1;
+	int c1;
+	public a() {
+		// TODO Auto-generated constructor stub
+	}
+	public a(int a1 ) {
+		this.a1=a1;
+	}
+	public a(int a1,int b1) {
+		this(a1);
+		this.b1=b1;
+	}
+	public a(int a1,int b1,int c1) {
+		this(a1,b1);
+		this.c1=c1;
+	}
+	public void s(){
+		
+	}
+	@Override
+	public String toString() {
+		return "a [a1=" + a1 + ", b1=" + b1 + ", c1=" + c1 + "]";
+	}
+	
+}
+class b extends a{
+	public b(int a1,int b1,int c1) {
+		super(a1, b1, c1);
+	}
+	public String toString() {
+		return  super.toString();
+	}
+}
+public class Q1 {
+ public static void main(String[] args) {
+	 b d = new b(12,4,56);
+	 System.out.println(d);
+}
+}

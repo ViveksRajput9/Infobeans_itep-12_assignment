@@ -1,0 +1,16 @@
+package practices.StringsAsses;
+import static practices.StringsAsses.Methods.*;
+
+import java.util.Scanner;
+
+public class Anagram {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Enter the first Word :- ");
+		String str1 = scanner.nextLine();
+		System.out.println("Enter the second Word :- ");
+		String str2 = scanner.nextLine();
+		System.out.println(isAnagram(str1, str2));
+
+	}
+}
