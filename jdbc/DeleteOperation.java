@@ -5,7 +5,7 @@ import java.sql.SQLOutput;
 import java.sql.Statement;
 import java.util.Scanner;
 
-public interface DeleteOperation {
+public class DeleteOperation {
     public static boolean warning() {
         System.err.println("Warning : After delete data you can't rollback ");
     	return Input.getConfirmation();

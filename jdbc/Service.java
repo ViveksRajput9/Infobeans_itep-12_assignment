@@ -6,7 +6,7 @@ public class Service {
 	private static Statement st;
 	private static String databaseName;
 	private static String tableName;
-
+    private static Connection connection;
 	public static String getDatabaseName() {
 		if (!databaseName.isBlank())
 			return databaseName;
@@ -18,7 +18,6 @@ public class Service {
 			return databaseName;
 		}
 	}
-
 	public static String getTableName() {
 		return tableName;
 	}
@@ -26,19 +25,18 @@ public class Service {
 	public static Statement getConnection() {
 		return st;
 	}
-
 	public static boolean createTable() {
 		System.out.println();
 		if (Input.getConfirmation()) {
 			System.out.println("Creating a new table...");
-			String lTableName = Input.getTableName();
+			String lTableName ="create table "+ Input.getTableName()+"(";
 			try {
 				st.executeUpdate("create table " + lTableName
 						+ "(id INT PRIMARY KEY AUTO_INCREMENT,firstName VARCHAR(30),lastName VARCHAR(30),MobileNumber varchar(15))");
 				System.out.println("Table Created successfully");
+				
 				tableName = lTableName;
 				return true;
-
 			} catch (SQLException e) {
 				// TODO: handle exception
 				if (e.getErrorCode() == 1050) {
@@ -143,22 +141,58 @@ public class Service {
 	}
 
 	public static void selectTable() {
-		try {
-			String tablename = Input.getTableName();
-			int result = st.executeUpdate("SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = "
-					+ databaseName + " AND table_name = " + tablename);
-			if (result <= 0) {
-				System.out.println("Table not exists");
-			    Menu.showMainOptions();
-			  }
-			else
-				tableName = tablename;
-			System.out.println("Table selected :- " + tableName);
-			Menu.showTableOptions();
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.getMessage();
-		}
+	    PreparedStatement preparedStatement = null;
+	    ResultSet resultSet = null;
+
+	    try {
+	        String tablename = Input.getTableName();
+	        
+	        // Use a prepared statement to prevent SQL injection
+	        String query = "SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = ? AND table_name = ?";
+	        preparedStatement = connection.prepareStatement(query);
+	        System.out.println(databaseName);
+	        preparedStatement.setString(1, databaseName);
+	        preparedStatement.setString(2, tablename);
+	        if(databaseName.isBlank()) {
+	        	System.out.println("Database name is null");
+	        	return ;
+	        }
+	        resultSet = preparedStatement.executeQuery();
+	        
+	        // Check if the result set has data
+	        if (resultSet.next()) {
+	            int count = resultSet.getInt(1);
+	            if (count <= 0) {
+	                System.err.println("Table does not exist.");
+	                Menu.showMainOptions();
+	            } else {
+	                tableName = tablename;
+	                System.out.println("Table selected: " + tableName);
+	                Menu.showTableOptions();
+	            }
+	        }else {
+	        	System.err.println("error");
+	        }
+	        
+	    } catch (SQLException e) {
+	        // Handle SQL exceptions specifically
+	        System.err.println("SQL error: " + e.getMessage());
+	    } catch (Exception e) {
+	        // Handle any other exceptions
+	        System.err.println("Error: " + e.getMessage());
+	    } finally {
+	        // Close the ResultSet and PreparedStatement in the finally block
+	        try {
+	            if (resultSet != null) {
+	                resultSet.close();
+	            }
+	            if (preparedStatement != null) {
+	                preparedStatement.close();
+	            }
+	        } catch (SQLException e) {
+	            System.err.println("Error closing resources: " + e.getMessage());
+	        }
+	    }
 	}
 
 	public static boolean connectDatabase() {
@@ -169,13 +203,15 @@ public class Service {
 		String password = Input.getPassword();
 
 		try {
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + databasename, username,
+			 connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + databasename, username,
 					password);
-			st = con.createStatement();
+			  databaseName = databasename;
+			
+			st = connection.createStatement();
 			return true;
 		} catch (SQLException e) {
 			if (e.getErrorCode() == 1045) { // Access denied for user
-				
+
 				System.err.println("Error: Access denied for user '" + username + "'. Please check your username and password.");
 
 			} else if (e.getErrorCode() == 1049) { // Unknown database

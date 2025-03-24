@@ -3,8 +3,8 @@ package jdbc;
 import java.io.Console;
 import java.util.Scanner;
 
-public interface Input {
-	Scanner sc = new Scanner(System.in);
+public class Input {
+	static Scanner sc = new Scanner(System.in);
 	public static String setDatabaseName() {
 		System.out.print("Enter Database Name:- ");
 		String databaseNameLocal= sc.nextLine().trim();
@@ -14,11 +14,13 @@ public interface Input {
 			return databaseNameLocal;
 		}
 	}
+	
 	public static String getEntrie() {
 		
 		String entrie = sc.nextLine().trim();
 		return (entrie.isBlank()) ? getEntrie():entrie;
 	}
+	
 	public static String getUsername() {
 		System.out.print("Enter username :- ");
 		String username = sc.nextLine().trim();
@@ -46,27 +48,31 @@ public interface Input {
 		String tableName = sc.nextLine().trim();
 		return (tableName.isBlank()) ? getTableName():tableName;
 	}
+	
 	public static String getColumnName() {
 		System.out.print("Enter column name :- ");
     	String column_name = sc.nextLine();
         return (column_name.isBlank())? getColumnName():column_name;
 	}
+	
 	public static String getCondition() {
 		System.out.print("Enter condition :- ");
     	String condition = sc.nextLine();
         return (condition.isBlank())? getCondition():condition;
 	}
+	
 	public static int getDecision() {
 	 	int flag=0;
 		try {
 			System.out.print("Enter :- ");
     		flag = Integer.parseInt(sc.nextLine());
 		} catch (Exception e) {
-		     e.getMessage();
+		     System.out.println(e.getMessage());
 		     flag = getDecision();
 		}
 		return flag;
 	}
+	
 	public static boolean getConfirmation() {
         System.out.println("Confirmation : Y or y for Yes || N or n for No");
 		try {
@@ -76,7 +82,7 @@ public interface Input {
     		else if(c=='n') return false;
     		else getConfirmation();
 		} catch (Exception e) {
-		     e.getMessage();
+		    System.err.println("Invalid : input must be Number");
 		     getConfirmation();
 		}
 		return false;

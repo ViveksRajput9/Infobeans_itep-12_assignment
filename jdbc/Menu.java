@@ -3,7 +3,7 @@ package jdbc;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public interface Menu {
+public class Menu {
 	public static void showDeleteOptions() throws SQLException {
 
 		System.out.println();
@@ -122,7 +122,7 @@ public interface Menu {
 				}
 
 				if (result < 1 || result > 4) {
-					System.out.println("Oops... wrong option. Please choose between 1 to 4.");
+					System.err.println("Invalid input. Please enter a number between 1 and 4.");
 					continue;
 				}
 				switch (result) {
