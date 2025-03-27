@@ -14,7 +14,6 @@ public class Student {
 	private String motherName;
 	private double income;
 	private String joinDate;
-	
 
 	public Student(int id, String firstName, String lastName, String mobileNumber, String courseName, String className,
 			String address, String fatherName, String motherName, double income, String joinDate) {

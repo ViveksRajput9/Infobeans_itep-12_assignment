@@ -2,14 +2,19 @@ package com.Info.Dao;
 
 import java.sql.*;
 
-import com.Info.main.Input;
+import com.Info.services.Input;
 
 public class DeleteOperation {
-    public static boolean warning() {
+	private static final DeleteOperation instance = new DeleteOperation();
+	private DeleteOperation() {}
+	public static DeleteOperation delete() {
+		return instance;
+	}
+    public boolean warning() {
         System.err.println("Warning : After delete data you can't rollback ");
     	return Input.getConfirmation();
     }
-    public static boolean dropTable(){
+    public boolean dropTable(){
     	String table_name = Input.getTableName();
     	try {
     		if(warning()) {
@@ -27,7 +32,7 @@ public class DeleteOperation {
     	}
     }
     
-    public static boolean truncateTable(){
+    public boolean truncateTable(){
     	String table_name = Input.getTableName();
     	try {
     		if(warning()) {
@@ -44,7 +49,7 @@ public class DeleteOperation {
              return false;
     	}
     }
-    public static boolean dropColumn(){
+    public boolean dropColumn(){
     	String table_name = Input.getTableName();
     	String column_name = Input.getColumnName();
     	try {
@@ -63,7 +68,7 @@ public class DeleteOperation {
     	}
 	}
     
-    public static void deleteRow() throws SQLException{
+    public void deleteRow() throws SQLException{
     	String table_name = Input.getTableName();
     	String column_name = Input.getColumnName();
     	String condition = Input.getCondition();
@@ -104,20 +109,3 @@ public class DeleteOperation {
         return con.executeUpdate();
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

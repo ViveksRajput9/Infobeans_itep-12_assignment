@@ -1,12 +1,16 @@
 package com.Info.Dao;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.Info.services.Input;
+
 public class UpdateOperation {
-	public UpdateOperation() {
-		
-	}
+	private static final UpdateOperation instance=new UpdateOperation();
+	private UpdateOperation() {}
+	public static UpdateOperation update() { return instance;}
 	public boolean updateData(String query,int id,String data){
 		    try {
 				PreparedStatement pst = Database.getConnection().prepareStatement(query);
@@ -43,50 +47,96 @@ public class UpdateOperation {
 			return false;
 		}
     }
-	public boolean updateFirstNameById(int id ,String firstName) {
-		    String query = "UPDATE "+Database.getTableName()+" SET FirstName =  ? WHERE ID = ?";
+	public boolean updateFirstNameById(int id ,String firstName,String tableName) {
+		    String query = "UPDATE "+tableName+" SET FirstName =  ? WHERE ID = ?";
             return updateData(query, id, firstName);
 	}
 	
-	public boolean updateLastNameById(int id , String lastName) {
-	     	String query = "UPDATE "+Database.getTableName()+" SET LastName = ? WHERE ID = ?";
+	public boolean updateLastNameById(int id , String lastName,String tableName) {
+	     	String query = "UPDATE "+tableName+" SET LastName = ? WHERE ID = ?";
 	     	return updateData(query, id, lastName);
 	     	
 	}
 	
-	public boolean updateAgeById(int id , int Age) {
-		String query = "UPDATE "+Database.getTableName()+" SET Age = ? WHERE ID = ?";
+	public boolean updateAgeById(int id , int Age,String tableName) {
+		String query = "UPDATE "+tableName+" SET Age = ? WHERE ID = ?";
      	return updateData(query, id, Age);
 
 	}
 
-	public boolean updateMobileNumberById(int id,String MobileNumber) {
-		String query = "UPDATE "+Database.getTableName()+" SET MobileNumber = ? WHERE ID = ?";
+	public boolean updateMobileNumberById(int id,String MobileNumber,String tableName) {
+		String query = "UPDATE "+tableName+" SET MobileNumber = ? WHERE ID = ?";
 	     	return updateData(query, id, MobileNumber);
 
 	}
-	public boolean updateAttendenceById(int id , String attendance) {
-		 String query = "UPDATE "+Database.getTableName()+" SET Attendence = ? WHERE ID = ?";
+	public boolean updateAttendenceById(int id , String attendance,String tableName) {
+		 String query = "UPDATE "+tableName+" SET Attendence = ? WHERE ID = ?";
 		   
 	     return updateData(query, id, attendance);
 
 	}
-	public boolean UpdateMarksById(int id,double marks) {
-		 String query = "UPDATE "+Database.getTableName()+" SET Marks = ? WHERE ID = ?";
+	public boolean UpdateMarksById(int id,double marks,String tableName) {
+		 String query = "UPDATE "+tableName+" SET Marks = ? WHERE ID = ?";
 	     return updateData(query, id, marks);
 
 	}
-	public boolean UpdateLeaveById(int id,String leave) {
-		String query = "UPDATE "+ Database.getTableName()+"SET Leave = ? WHERE ID = ?";
+	public boolean UpdateLeaveById(int id,String leave,String tableName) {
+		String query = "UPDATE "+ tableName+"SET Leave = ? WHERE ID = ?";
 	     return updateData(query, id, leave);
 		  
 	}
-	public boolean UpdateAssignmentStatusById(int id , String status) {
-		    String query = "UPDATE "+Database.getTableName()+" SET Assignment = ? WHERE ID = ?";
+	public boolean UpdateAssignmentStatusById(int id , String status,String tableName) {
+		    String query = "UPDATE "+tableName+" SET Assignment = ? WHERE ID = ?";
 		     return updateData(query, id, status);
 	}
-	public boolean UpdatePlacementStatusById(int id , String status) {
-		  String query = "UPDATE "+Database.getTableName()+" SET PlacementStatus = ? WHERE ID = ?";
+	public boolean UpdatePlacementStatusById(int id , String status,String tableName) {
+		  String query = "UPDATE "+tableName+" SET PlacementStatus = ? WHERE ID = ?";
 		  return updateData(query, id, status);
+	}
+	public  boolean insertData(Connection connection,String tableName) throws SQLException {
+		System.out.println();
+
+		ResultSet rs = null;
+		try {
+			System.out.print("Enter table name :-");
+			rs = connection.prepareStatement("select * from " + tableName).executeQuery();
+			int columnCount = rs.getMetaData().getColumnCount();
+			System.out.println("Enter data:-");
+			StringBuilder query = new StringBuilder("insert into " + tableName + "(");
+			StringBuilder values = new StringBuilder("VALUES(");
+			for (int i = 1; i <= columnCount; i++) {
+				String columnName = rs.getMetaData().getColumnName(i);
+				System.out.print(columnName + " :- ");
+				String entrie = Input.getEntrie();
+				query.append(columnName);
+				if (!Character.isDigit(entrie.charAt(0)))
+					values.append("'" + entrie + "'");
+				else
+					values.append(entrie);
+				if (i != columnCount)
+					query.append(',');
+				if (i != columnCount)
+					values.append(',');
+			}
+			query.append(")");
+			values.append(")");
+			System.out.println(query + " " + values);
+			if(Input.getConfirmation()) {
+				int r = connection.prepareStatement(query + " " + values).executeUpdate();
+				System.out.println("--> " + r + " row effected data inserted successfully");
+				System.out.println();
+			}
+
+			return true;
+		} catch (Exception e) {
+//			e.printStackTrace();
+
+			e.getMessage();
+			return false;
+			// TODO: handle exception
+		} finally {
+			if (rs != null)
+				rs.close();
+		}
 	}
 }
