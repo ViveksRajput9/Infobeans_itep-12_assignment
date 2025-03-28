@@ -76,24 +76,22 @@ public class Menu {
 
 			case 1 -> {
 				String tableName = Input.getTableName();
-				ResultSet rs = Database.getConnection().prepareStatement("select * from "+tableName).executeQuery();
+				ResultSet rs = Database.database().getConnection().prepareStatement("select * from "+tableName).executeQuery();
 				Print.print().printTable(rs);
 			}
 			case 2 -> {
                 String tableName = Input.getTableName();
 				boolean flag ;
 				do{
-					flag= UpdateOperation.update().insertData(Database.getConnection(),tableName);
+					flag= UpdateOperation.update().insertData(Database.database().getConnection(),tableName);
 				}while(!flag);
 			}
-
 			case 3 -> showDeleteOptions();
-
 			case 4 -> {
 
-				boolean flag = Database.connectDatabase();
+				boolean flag = Database.database().connectDatabase();
 				while (!flag)
-					flag = Database.connectDatabase();
+					flag = Database.database().connectDatabase();
 
 				System.out.println("Database changed successfully");
 			}
@@ -106,7 +104,28 @@ public class Menu {
 			}
 		}
 	}
-
+	public static void showTablesOption() throws SQLException {
+		 Print.print().printTable(Database.database().getTables());
+		 System.out.println("Enter the table Name : ");
+		 String tableName = Input.getEntrie();
+		 if(Database.database().isTableExist(tableName)) {
+			System.out.println(tableName + " selected"); 
+		 }else {
+			showTablesOption();
+		}
+	}
+    public static void showChooseDatabaseOption() throws SQLException {
+       Print.print().printTable(Database.database().getDatabases());	
+       System.out.println("choose one of these databases");
+       String databaseName = Input.getEntrie();
+      if( Database.database().selectDatabase(databaseName)) {
+    	  System.out.println(databaseName + " Selected ");
+    	  showTablesOption();
+      }else {
+    	  showChooseDatabaseOption();
+      }
+    }
+    
 	public static void showMainOptions() throws SQLException {
 		System.out.println();
 		try {
@@ -114,9 +133,9 @@ public class Menu {
 
 				System.out.println("Choose one of these options:");
 				System.out.println("1. Create table");
-				System.out.println("2. Select table");
+				System.out.println("2. change table");
 				System.out.println("3. Change database");
-				System.out.println("4. Exit");
+				System.out.println("4. continue");
 				int result;
 				System.out.println();
 
@@ -133,19 +152,30 @@ public class Menu {
 					continue;
 				}
 				switch (result) {
+
 				case 1 -> {
-					boolean flag = CreateOperation.create().createTablewithFixedfield();
+					
+					System.out.println("1. createTablewithFixedfield");
+					System.out.println("2. createTablewithQuery");
+					result = Input.getDecision();
+					boolean flag;
+					if(result==1) {
+						flag = CreateOperation.create().createTablewithFixedfield();
+						
+					}else {
+						flag = CreateOperation.create().createTablewithQuery(); 
+					}
 					while (!flag) showTableOptions();
 				}
 				case 2 ->{
 					String tableName = Input.getTableName();
-					Database.database().selectTable(Database.getConnection(),tableName);
+					Database.database().selectTable(tableName);
 				}
 
 				case 3 -> {
-					boolean flag = Database.connectDatabase();
+					boolean flag = Database.database().connectDatabase();
 					while (!flag)
-						flag = Database.connectDatabase();
+						flag = Database.database().connectDatabase();
 					System.out.println("Database changed successfully");
 				}
 				case 4 -> {

@@ -18,7 +18,7 @@ public class CreateOperation {
 			String query = Input.getEntrie();
 			boolean flag = false;
 			try {
-				flag = Database.getConnection().createStatement().execute(query);
+				flag = Database.database().getConnection().createStatement().execute(query);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -36,7 +36,7 @@ public class CreateOperation {
 		System.out.println("Creating a new table...");
 		String lTableName ="create table "+ Input.getTableName()+"(";
 		try {
-			Database.getConnection().prepareStatement("create table " + lTableName
+			Database.database().getConnection().prepareStatement("create table " + lTableName
 			+ "(id INT PRIMARY KEY AUTO_INCREMENT,firstName VARCHAR(30),"
 			+ "lastName VARCHAR(30),MobileNumber varchar(15))").executeUpdate();
 			System.out.println("Table Created successfully");

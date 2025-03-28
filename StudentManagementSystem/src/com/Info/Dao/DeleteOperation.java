@@ -18,7 +18,7 @@ public class DeleteOperation {
     	String table_name = Input.getTableName();
     	try {
     		if(warning()) {
-    			int rs= Database.getConnection().createStatement().executeUpdate("drop table "+table_name);
+    			int rs= Database.database().getConnection().createStatement().executeUpdate("drop table "+table_name);
     			return true;    			
     		}
     		else {
@@ -36,7 +36,7 @@ public class DeleteOperation {
     	String table_name = Input.getTableName();
     	try {
     		if(warning()) {
-    			int s = Database.getConnection().createStatement().executeUpdate("truncate table "+table_name);
+    			int s = Database.database().getConnection().createStatement().executeUpdate("truncate table "+table_name);
     			return true;    			
     		}
     		else {
@@ -54,7 +54,7 @@ public class DeleteOperation {
     	String column_name = Input.getColumnName();
     	try {
     		if(warning()) {
-    			Database.getConnection().createStatement().executeUpdate("ALTER TABLE "+table_name+" DROP COLUMN "+column_name);
+    			Database.database().getConnection().createStatement().executeUpdate("ALTER TABLE "+table_name+" DROP COLUMN "+column_name);
     			return true;    			
     		}
     		else {
@@ -83,7 +83,7 @@ public class DeleteOperation {
         int flag = Input.getDecision();
     	if(flag==1) {
     		if(warning()) {
-    			int row = Database.getConnection().createStatement().executeUpdate(query);  
+    			int row = Database.database().getConnection().createStatement().executeUpdate(query);  
     			System.out.println(row +" row effected ");
     			System.out.println("Query execute successfully");
     			break;
@@ -104,7 +104,7 @@ public class DeleteOperation {
 	}
     public int deleteRow(int id,String tableName) throws SQLException {
     	String Query = "DELETE FROM " + tableName+" WHERE Id = ?";
-    	PreparedStatement con = Database.getConnection().prepareStatement(Query);
+    	PreparedStatement con = Database.database().getConnection().prepareStatement(Query);
     	con.setInt(1, id);
         return con.executeUpdate();
     }

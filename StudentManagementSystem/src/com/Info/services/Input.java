@@ -16,7 +16,7 @@ public class Input {
 	}
 	
 	public static String getEntrie() {
-		
+	   
 		String entrie = sc.nextLine().trim();
 		return (entrie.isBlank()) ? getEntrie():entrie;
 	}

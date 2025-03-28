@@ -10,7 +10,7 @@ public class Print {
 	    return instance;
 	}
 	
-	public void printSpace(int len) {
+	private void printSpace(int len) {
 		if (len > 0)
 			for (int i = 0; i < len; i++) {
 				System.out.print(" ");

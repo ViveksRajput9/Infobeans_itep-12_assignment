@@ -13,7 +13,7 @@ public class UpdateOperation {
 	public static UpdateOperation update() { return instance;}
 	public boolean updateData(String query,int id,String data){
 		    try {
-				PreparedStatement pst = Database.getConnection().prepareStatement(query);
+				PreparedStatement pst = Database.database().getConnection().prepareStatement(query);
 				pst.setString(1, data);
 				pst.setInt(2, id);
 				return true;
@@ -25,7 +25,7 @@ public class UpdateOperation {
 	}
 	public boolean updateData(String query,int id,int data){
 	    try {
-			PreparedStatement pst = Database.getConnection().prepareStatement(query);
+			PreparedStatement pst = Database.database().getConnection().prepareStatement(query);
 			pst.setInt(1, data);
 			pst.setInt(2, id);
 			return true;
@@ -37,7 +37,7 @@ public class UpdateOperation {
     }
 	public boolean updateData(String query,int id,double data){
 	    try {
-			PreparedStatement pst = Database.getConnection().prepareStatement(query);
+			PreparedStatement pst = Database.database().getConnection().prepareStatement(query);
 			pst.setDouble(1, data);
 			pst.setInt(2, id);
 			return true;

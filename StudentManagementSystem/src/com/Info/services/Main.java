@@ -9,8 +9,9 @@ public class Main {
     	System.out.println("Welcome to Java Data Base Connectivity");
         boolean flag;
 		do{
-    		 flag = Database.connectDatabase();
+    		 flag = Database.database().connectDatabase();
+    		 
     	}while(!flag);
-		Menu.showMainOptions();
+		Menu.showChooseDatabaseOption();
 	}
 }
