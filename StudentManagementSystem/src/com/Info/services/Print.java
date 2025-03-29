@@ -40,6 +40,7 @@ public class Print {
 					printSpace((whiteSpace - result.length() + 1) / 2);
 					System.out.print(result);
 					printSpace((whiteSpace - result.length() + 2) / 2);
+					if(columnCount==i) System.out.print("|");
 				}
 				System.out.println();
 			}

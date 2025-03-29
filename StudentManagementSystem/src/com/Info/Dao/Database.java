@@ -43,10 +43,10 @@ public class Database {
 
     }
     public ResultSet getTables() throws SQLException{
-    	return database.createStatement().executeQuery("SHOW TABLES");
+    	return connection.createStatement().executeQuery("SHOW TABLES");
     }
 
-    public boolean isTableExist(String tableName) throws SQLException {
+    private boolean isTableExist(String tableName) throws SQLException {
         // Use a prepared statement to prevent SQL injection
         String query = "SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = ? AND table_name = ?";
         PreparedStatement   preparedStatement = connection.prepareStatement(query);
@@ -61,7 +61,9 @@ public class Database {
         // Check if the result set has data
         if (resultSet.next()) {
             int count = resultSet.getInt(1);
-            if(count>=0) return true;
+            if(count>=0) {
+            	return true;
+            }
             else return false;
         }
 	    // Close the ResultSet and PreparedStatement in the finally block
@@ -78,6 +80,7 @@ public class Database {
 	        }
 	    return false;
     }
+
 	public  boolean selectTable(String tableName) {
 	    try {
 	        // Check if the result set has data
@@ -101,8 +104,10 @@ public class Database {
 	}
 	public boolean selectDatabase(String DatabaseName) throws SQLException {
 			try {
+				
 				connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+DatabaseName, userName,Password);
 				st = connection.createStatement();
+				databaseName = DatabaseName;
 				return true;
 			} catch (SQLException e) {
 				if (e.getErrorCode() == 1045) { // Access denied for user

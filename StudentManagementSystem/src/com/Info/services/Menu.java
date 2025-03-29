@@ -3,6 +3,7 @@ package com.Info.services;
 import java.sql.*;
 
 import com.Info.Dao.DeleteOperation;
+import com.Info.Dao.ReadOperation;
 import com.Info.Dao.UpdateOperation;
 import com.Info.Dao.CreateOperation;
 import com.Info.Dao.Database;
@@ -39,13 +40,13 @@ public class Menu {
 			case 2 -> DeleteOperation.delete().truncateTable();
 			case 3 -> DeleteOperation.delete().dropColumn();
 			case 4 -> DeleteOperation.delete().deleteRow();
-			case 5 -> showTableOptions();
+			case 5 -> showTableOperationOptions();
 
 			}
 		}
 	}
 
-	public static void showTableOptions() throws SQLException {
+	public static void showTableOperationOptions() throws SQLException {
 		System.out.println();
 
 		while (true) {
@@ -75,15 +76,13 @@ public class Menu {
 			switch (result) {
 
 			case 1 -> {
-				String tableName = Input.getTableName();
-				ResultSet rs = Database.database().getConnection().prepareStatement("select * from "+tableName).executeQuery();
+				ResultSet rs = ReadOperation.Read().getAllDetail(Database.database().getTableName());
 				Print.print().printTable(rs);
 			}
 			case 2 -> {
-                String tableName = Input.getTableName();
 				boolean flag ;
 				do{
-					flag= UpdateOperation.update().insertData(Database.database().getConnection(),tableName);
+					flag= UpdateOperation.update().insertData(Database.database().getConnection(),Database.database().getTableName());
 				}while(!flag);
 			}
 			case 3 -> showDeleteOptions();
@@ -108,8 +107,9 @@ public class Menu {
 		 Print.print().printTable(Database.database().getTables());
 		 System.out.println("Enter the table Name : ");
 		 String tableName = Input.getEntrie();
-		 if(Database.database().isTableExist(tableName)) {
-			System.out.println(tableName + " selected"); 
+		 if(Database.database().selectTable(tableName)) {
+			System.out.println(tableName + " selected");
+			showTableOperationOptions();
 		 }else {
 			showTablesOption();
 		}
@@ -120,7 +120,7 @@ public class Menu {
        String databaseName = Input.getEntrie();
       if( Database.database().selectDatabase(databaseName)) {
     	  System.out.println(databaseName + " Selected ");
-    	  showTablesOption();
+    	  showMainOptions();
       }else {
     	  showChooseDatabaseOption();
       }
@@ -133,9 +133,9 @@ public class Menu {
 
 				System.out.println("Choose one of these options:");
 				System.out.println("1. Create table");
-				System.out.println("2. change table");
+				System.out.println("2. select table");
 				System.out.println("3. Change database");
-				System.out.println("4. continue");
+				System.out.println("4. exit");
 				int result;
 				System.out.println();
 
@@ -154,7 +154,6 @@ public class Menu {
 				switch (result) {
 
 				case 1 -> {
-					
 					System.out.println("1. createTablewithFixedfield");
 					System.out.println("2. createTablewithQuery");
 					result = Input.getDecision();
@@ -165,11 +164,11 @@ public class Menu {
 					}else {
 						flag = CreateOperation.create().createTablewithQuery(); 
 					}
-					while (!flag) showTableOptions();
+					while (!flag) showTablesOption();
 				}
 				case 2 ->{
-					String tableName = Input.getTableName();
-					Database.database().selectTable(tableName);
+					showTablesOption();
+				
 				}
 
 				case 3 -> {

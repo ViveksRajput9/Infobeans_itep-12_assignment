@@ -98,21 +98,49 @@ public class UpdateOperation {
 
 		ResultSet rs = null;
 		try {
-			System.out.print("Enter table name :-");
-			rs = connection.prepareStatement("select * from " + tableName).executeQuery();
+			rs = connection.prepareStatement("select * from " + tableName+" LIMIT 2").executeQuery();
 			int columnCount = rs.getMetaData().getColumnCount();
-			System.out.println("Enter data:-");
 			StringBuilder query = new StringBuilder("insert into " + tableName + "(");
 			StringBuilder values = new StringBuilder("VALUES(");
+			System.out.println("Enter data: ");
 			for (int i = 1; i <= columnCount; i++) {
+				
 				String columnName = rs.getMetaData().getColumnName(i);
-				System.out.print(columnName + " :- ");
-				String entrie = Input.getEntrie();
+				if(columnName.equalsIgnoreCase("Id")) {
+					continue;
+				}
+				String columnType = rs.getMetaData().getColumnTypeName(i);
+				
 				query.append(columnName);
-				if (!Character.isDigit(entrie.charAt(0)))
-					values.append("'" + entrie + "'");
-				else
-					values.append(entrie);
+	            System.out.print("Enter data for " + columnName + " (" + columnType + "): ");
+
+	            String entry = Input.getEntrie();
+
+
+	            // Handle different data types
+
+	            if (columnType.equalsIgnoreCase("VARCHAR") || columnType.equalsIgnoreCase("CHAR") || 
+
+	                columnType.equalsIgnoreCase("TEXT") || columnType.equalsIgnoreCase("DATE")) {
+
+	                values.append("'" + entry + "'");
+
+	            } else if (columnType.equalsIgnoreCase("INT") || columnType.equalsIgnoreCase("INTEGER")) {
+
+	                values.append(entry); // Assuming entry is a valid integer
+
+	            } else if (columnType.equalsIgnoreCase("FLOAT") || columnType.equalsIgnoreCase("DOUBLE")) {
+
+	                values.append(entry); // Assuming entry is a valid float/double
+
+	            } else if (columnType.equalsIgnoreCase("BOOLEAN")) {
+
+	                values.append(entry.equalsIgnoreCase("true") ? "1" : "0");
+
+	            } else if (columnType.equalsIgnoreCase("Tinyint")) {
+	            	values.append(entry);
+	            }
+
 				if (i != columnCount)
 					query.append(',');
 				if (i != columnCount)
